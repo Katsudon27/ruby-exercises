@@ -5,7 +5,7 @@ def contains?(hash, search_value)
   # Examples:
   # contains?({ foo: { bar: "baz" } }, "baz") # true
   # contains?({ foo: { bar: "baz" } }, "egg") # false
-  if hash.instance_of?(Hash)
+  if !hash.instance_of?(Hash)
     return 
   elsif hash.has_value?(search_value)
     return true

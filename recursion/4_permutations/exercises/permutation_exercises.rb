@@ -13,4 +13,17 @@ def permutations(array)
   #
   # NOTE: the tests do not check for ordering, so a return of `[[1, 2], [2, 1]]`
   # will be treated the same as `[[2, 1], [1, 2]]`
+  
+  if array.length == 1 || array.length == 0
+    return [array]
+  end
+
+  result = []
+
+  array.each_with_index do |integer, index|
+    array_temp = array.select {|num| num != integer}
+    permutations(array_temp).each {|p| result.push([integer] + p)}
+  end
+
+  result
 end
